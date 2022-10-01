@@ -37,14 +37,20 @@ class User(Base):
 class Favorites_people(Base):
     __tablename__ = 'people_favorites'
     id = Column(Integer, primary_key=True)
-    user_id = Column(String(250), nullable=False)
-    people_id = Column(String(250), nullable=False)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    people_id = Column(Integer, ForeignKey('people.id'))
 
 class Favorites_planet(Base):
     __tablename__ = 'planet_favorites'
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
-    planet_id = Column(String(250), nullable=False)
+    planet_id = Column(Integer, ForeignKey('planets.id'))
+
+class Favorites_vehicles(Base):
+    __tablename__ = 'planet_vehicles'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    planet_id = Column(Integer, ForeignKey('vehicles.id'))
     
 
 class Planets(Base):
