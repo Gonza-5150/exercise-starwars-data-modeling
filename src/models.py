@@ -9,7 +9,7 @@ from eralchemy import render_er
 Base = declarative_base()
 
 class Person(Base):
-    __tablename__ = 'personajes'
+    __tablename__ = 'people'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
@@ -47,7 +47,7 @@ class Favorites_planet(Base):
     planet_id = Column(Integer, ForeignKey('planets.id'))
 
 class Favorites_vehicles(Base):
-    __tablename__ = 'planet_vehicles'
+    __tablename__ = 'vehicles_favorites'
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
     planet_id = Column(Integer, ForeignKey('vehicles.id'))
