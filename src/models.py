@@ -14,28 +14,19 @@ class Person(Base):
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
-    geder = Column(String(250), nullable=False)
-    skin_color = Column(String(250), nullable=False)
-    birth = Column(String(250), nullable=False)
-    eye_color = Column(String(250), nullable=False)
+    
 
 class Planet(Base):
     __tablename__ = 'planets'
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
-    diameter = Column(String(250), nullable=False)
-    climate = Column(String(250), nullable=False)
-    population = Column(String(250), nullable=False)
-    gravity = Column(String(250), nullable=False)
+    
 
 class Vehicles(Base):
     __tablename__ = 'vehicles'
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
-    fabicate = Column(String(250), nullable=False)
-    tripulation = Column(String(250), nullable=False)
-    speed = Column(String(250), nullable=False)
-    passengers = Column(String(250), nullable=False)
+    
 
 class User(Base):
     __tablename__ = 'user'
@@ -43,11 +34,17 @@ class User(Base):
     email = Column(String(250), nullable=False)
     password = Column(String(250), nullable=False)
 
-class Favorites(Base):
-    __tablename__ = 'favorites'
+class Favorites_people(Base):
+    __tablename__ = 'people_favorites'
     id = Column(Integer, primary_key=True)
     user_id = Column(String(250), nullable=False)
-    favorito = Column(String(250), nullable=False)
+    people_id = Column(String(250), nullable=False)
+
+class Favorites_planet(Base):
+    __tablename__ = 'planet_favorites'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    planet_id = Column(String(250), nullable=False)
     
 
 class Planets(Base):
