@@ -50,7 +50,7 @@ class Favorites_vehicles(Base):
     __tablename__ = 'vehicles_favorites'
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
-    planet_id = Column(Integer, ForeignKey('vehicles.id'))
+    vehicles_id = Column(Integer, ForeignKey('vehicles.id'))
     
 
 
